@@ -11,7 +11,7 @@ visited = [False] * (n + 1)
 # 최단 거리 테이블을 모두 무한으로 초기화
 distance = [INF] * (n + 1)
 
-for _in range(m):
+for _ in range(m):
     a,b,c = map(int, input.split())
     graph[a].append((b, c))
 
