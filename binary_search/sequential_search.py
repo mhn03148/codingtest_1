@@ -13,3 +13,4 @@ print("앞서 적은 원소 개수만큼 문자열을 입력하세요. 구분은
 array = input().split()
 
 print(sequential_search(n, target, array))
+print()
