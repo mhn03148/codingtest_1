@@ -1,0 +1,1 @@
+worldmap = ["..XXX","..XXX","...XX","X....","XXX.."]
