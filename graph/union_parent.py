@@ -10,7 +10,7 @@ def union_parent(parent, a, b):
     if a<b:
         parent[b] = a
     else:
-        parent[a] = b
+        parent[a] =ㅠ
 
 #노드의 개수와 간선(union 연산)의 개수 입력받기
 v, e = map(int, input().split())
