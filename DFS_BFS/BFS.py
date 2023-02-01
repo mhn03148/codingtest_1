@@ -24,3 +24,10 @@ graph = [[],
          [1,7]]
 visited = [False] * 9
 bfs(graph, 1, visited)
+#set 함수
+a = [1,1,1,2]
+v=[]
+for i in set(a):
+    v.append(i)
+
+print(v)
