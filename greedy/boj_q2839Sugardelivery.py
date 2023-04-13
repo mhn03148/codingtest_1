@@ -1,15 +1,14 @@
 S = int(input())
 ans = 0
 
-while S > 0:
-    if S>5 :
+while S >= 0:
+    if S % 5 == 0 :
         ans = ans + S//5
-        S = S % 5
+        print(ans)
+        break
     else:
-        if S % 3 !=0:
-            ans = -1
-            break
-        else:
-            ans = ans + S//3
-            S = S % 5
-print(ans)
+        S = S -3
+        ans = ans + 1
+else:
+    print(-1)
+
