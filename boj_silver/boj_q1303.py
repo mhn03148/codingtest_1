@@ -1,61 +1,38 @@
-N,M = map(int,input().split())
-graph = []
-for _ in range(M):
-    graph.append(list(map(str,input())))
-def dfs_W(x,y,z):
-    if x <= -1 or x <= -1 or x>=M or y >=N:
-        return False
-    if graph[x][y] == "W":
-        graph[x][y] = z
-        dfs_W(x + 1,y,z)
-        dfs_W(x, y + 1,z)
-        dfs_W(x - 1, y,z)
-        dfs_W(x, y - 1,z)
-        return True
+from collections import deque
+n, m = map(int, input().split())
 
-    return False
-def dfs_B(x,y,z):
-    if x <= -1 or x <= -1 or x>=M or y >=N:
-        return False
-    if graph[x][y] == "B":
-        graph[x][y] = z
-        dfs_B(x + 1,y,z)
-        dfs_B(x, y + 1,z)
-        dfs_B(x - 1, y,z)
-        dfs_B(x, y - 1,z)
-        return True
-    else:
-        return False
+war = []
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+power = [0 for _ in range(2)]
 
-result = 0
-result_1 = 0
-num = 0
-for i in range(M):
-    for j in range(N):
-        if dfs_W(i,j,num) == True:
-            print(graph)
-            result+=1
-            num+=1
-W_num = num
-for i in range(M):
-    for j in range(N):
-        if dfs_B(i,j,num) == True:
-            result_1+=1
-            num+=1
-ans = []
-for i in range(num):
-    ans_num=0
-    for j in range(M):
-        ans_num+=graph[j].count(i)
-    ans.append(ans_num)
+for i in range(m):
+    war.append(list(input()))
 
-wPo=0
-bPo=0
-for i in range(len(ans)):
-    if i < W_num:
-        wPo += ans[i]**2
-    else:
-        bPo += ans[i]**2
-print(graph)
-print(wPo, bPo)
-print(result, result_1)
+
+def bfs(x, y, a):
+    queue = deque()
+    queue.append((x, y))
+    war[x][y] = -1
+    cnt = 1
+    while queue:
+        x, y = queue.popleft()
+        for i in range(4):
+            nx, ny = dx[i] + x, dy[i] + y
+            if nx < 0 or nx >= m or ny < 0 or ny >= n:
+                continue
+            if war[nx][ny] == a:
+                war[nx][ny] = -1
+                queue.append((nx, ny))
+                cnt += 1
+    return cnt * cnt
+
+
+for i in range(m):
+    for j in range(n):
+        if war[i][j] == "W":
+            power[0] += bfs(i, j, "W")
+        if war[i][j] == "B":
+            power[1] += bfs(i, j, "B")
+
+print(" ".join(map(str, power)))
