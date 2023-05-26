@@ -22,4 +22,4 @@ if y>m:
 elif y == m:
     print("Y M", m)
 else:
-    print('Y', y)
+    print('Y',  y)
