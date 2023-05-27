@@ -20,6 +20,6 @@ for i in range(len(phone)):
 if y>m:
     print('M',m)
 elif y == m:
-    print("Y M", m)
+    print("Y M",m)
 else:
     print('Y', y)
