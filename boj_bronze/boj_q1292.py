@@ -7,6 +7,6 @@ for i in range(1000):
 
 res = 0
 for i in range(A,B+1):
-    result= ans[i] + result
+    res= ans[i] + res
 
 print(res)
