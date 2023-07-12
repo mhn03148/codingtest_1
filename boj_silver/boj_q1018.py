@@ -1,27 +1,27 @@
 n,m = map(int,input().split())
 
-mtr=[]
-cnt=[]
+board=[]
+count=[]
 for i in range(n):
-    mtr.append(input())
+    board.append(input())
 
 for a in range(n-7):
     for b in range(m-7):
-        windex = 0
-        bindex = 0
+        W = 0
+        B = 0
         for i in range(a,a+8):
             for j in range(b,b+8):
                 if (i+j)%2==0:
-                    if mtr[i][j]!='W':
-                        windex += 1
+                    if board[i][j]!= 'W':
+                        W += 1
                     else:
-                        bindex += 1
+                        B += 1
                 else:
-                    if mtr[i][j]!='W':
-                        bindex += 1
+                    if board[i][j]!= 'W':
+                        B += 1
                     else:
-                        windex += 1
-        cnt.append(bindex)
-        cnt.append(windex)
-print(cnt)
-print(min(cnt))
+                        W += 1
+        count.append(B)
+        count.append(W)
+
+print(min(count))
