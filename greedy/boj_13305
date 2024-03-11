@@ -1,0 +1,18 @@
+N = int(input())
+dis = []
+gas = []
+dis = list(map(int,input().split()))
+gas = list(map(int,input().split()))
+gas = gas[:-1]
+
+ans = 0
+gasprice = gas[0]
+for i in range(len(gas)):
+   
+    if gas[i] > gasprice:
+        ans += (gasprice * dis[i])
+    else:
+        gasprice = gas[i]
+        ans += (gasprice * dis[i])
+
+print(ans)
