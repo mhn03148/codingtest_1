@@ -1,0 +1,13 @@
+num = int(input())
+rope = []
+ans = 0
+for i in range(num) :
+    rope.append(int(input()))
+
+rope.sort()
+for i in range(len(rope)):
+    if ans < (len(rope) - i ) * rope[i]:
+        ans = (len(rope) - i ) * rope[i]
+
+
+print(ans)
